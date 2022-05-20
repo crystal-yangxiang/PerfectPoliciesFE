@@ -1,0 +1,67 @@
+﻿@model IEnumerable<PerfectPoliciesFE.Models.Quiz>
+
+@{
+    ViewData["Title"] = "QuizList";
+}
+
+<h1>QuizList</h1>
+
+<p>
+    <a asp-action="Create" asp-controller="Quiz">Create New</a>
+    @Html.ActionLink("Create New", "Create", "Quiz")
+    <a href="/quiz/create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizTopic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizCreatorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizCreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassPercentage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizTopic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizCreatorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizCreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassPercentage)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

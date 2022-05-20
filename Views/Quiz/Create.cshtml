@@ -1,0 +1,56 @@
+﻿@model PerfectPoliciesFE.Models.DTO.QuizCreate
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>QuizCreate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="QuizTitle" class="control-label"></label>
+                <input asp-for="QuizTitle" class="form-control" />
+                <span asp-validation-for="QuizTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuizTopic" class="control-label"></label>
+                <input asp-for="QuizTopic" class="form-control" />
+                <span asp-validation-for="QuizTopic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuizCreatorName" class="control-label"></label>
+                <input asp-for="QuizCreatorName" class="form-control" />
+                <span asp-validation-for="QuizCreatorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuizCreatedDate" class="control-label"></label>
+                <input asp-for="QuizCreatedDate" class="form-control" />
+                <span asp-validation-for="QuizCreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PassPercentage" class="control-label"></label>
+                <input asp-for="PassPercentage" class="form-control" />
+                <span asp-validation-for="PassPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PerfectPoliciesFE.Models.Question>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New Question</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.QuestionId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionTopic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionImageUrl)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.QuizId)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionTopic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionText)
+            </td>
+            <td>
+                <img src="~/Uploads/@Html.DisplayFor(modelItem => item.QuestionImageUrl)" width="50" />
+                
+            </td>
+
+
+            <td>
+                @Html.ActionLink("Options", "OptionsForQuestionId", "Option", new { id = item.QuestionId }, new { @class = "btn btn-primary" })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.QuestionId }, new { @class = "btn btn-outline-info" }) 
+                @Html.ActionLink("Details", "Details", new { id = item.QuestionId }, new { @class = "btn btn-outline-info" }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.QuestionId }, new { @class = "btn btn-outline-info" })
+            </td>
+
+            @Html.HiddenFor(modelItem => item.QuestionId)
+            @Html.HiddenFor(modelItem => item.QuizId)
+        </tr>
+}
+    </tbody>
+</table>

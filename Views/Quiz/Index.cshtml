@@ -1,0 +1,70 @@
+﻿@model IEnumerable<PerfectPoliciesFE.Models.Quiz>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Quizzes</h1>
+
+<p>
+    <a asp-action="Create">Create New Quiz</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.QuizId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.QuizTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizTopic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizCreatorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuizCreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PassPercentage)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+                @Html.HiddenFor(modelItem => item.QuizId)
+
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizTopic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizCreatorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuizCreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassPercentage)
+            </td>
+            <td>
+                @Html.ActionLink("Questions", "QuestionsForQuizId", "Question", new { id=item.QuizId }, new { @class = "btn btn-primary" })
+            </td>
+            <td class="text-center">
+                @Html.ActionLink("Edit", "Edit", "Quiz", new { id = item.QuizId }, new { @class = "btn btn-outline-info" })
+                @Html.ActionLink("Details", "Details", new { id = item.QuizId } , new { @class="btn btn-outline-info" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.QuizId }, new { @class="btn btn-outline-info" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
