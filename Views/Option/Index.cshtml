@@ -12,9 +12,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.OptionId)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.OptionText)
             </th>
@@ -24,18 +24,19 @@
             <th>
                 @Html.DisplayNameFor(model => model.OptionIsCorrect)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.QuestionId)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.OptionId)
-            </td>
+            </td>*@
+            @Html.HiddenFor(modelItem => item.OptionId)
             <td>
                 @Html.DisplayFor(modelItem => item.OptionText)
             </td>
@@ -45,14 +46,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.OptionIsCorrect)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.QuestionId)
-            </td>
+            </td>*@
+            @Html.HiddenFor(modelItem => item.QuestionId)
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.OptionId }, new { @class = "btn btn-outline-info" }) 
-                @Html.ActionLink("Details", "Details", new { id = item.OptionId }, new { @class = "btn btn-outline-info" }) 
+                @Html.ActionLink("Edit", "Edit", new { id = item.OptionId }, new { @class = "btn btn-outline-info" })
+                @Html.ActionLink("Details", "Details", new { id = item.OptionId }, new { @class = "btn btn-outline-info" })
                 @Html.ActionLink("Delete", "Delete", new { id = item.OptionId }, new { @class = "btn btn-outline-info" })
             </td>
+
+
+
+
         </tr>
 }
     </tbody>
