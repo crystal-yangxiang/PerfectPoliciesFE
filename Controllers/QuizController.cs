@@ -174,6 +174,12 @@ namespace PerfectPoliciesFE.Controllers
             }
         }
 
+        /// <summary>
+        /// Return a filtered list of quizzes which contain and match input string
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <returns></returns>
+
         [HttpPost]
         public IActionResult FilterQuiz(IFormCollection collection)
         {

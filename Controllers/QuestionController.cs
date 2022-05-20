@@ -28,6 +28,10 @@ namespace PerfectPoliciesFE.Controllers
 
         }
 
+        /// <summary>
+        /// Display all Questions 
+        /// </summary>
+        /// <returns>All Questions</returns>
         // GET: QuestionController
         public ActionResult Index()
         {
@@ -35,6 +39,11 @@ namespace PerfectPoliciesFE.Controllers
             return View(questions);
         }
 
+        /// <summary>
+        /// Return a filtered list of Questions to the index view (depends on QuizId)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: QuestionController/
         public ActionResult QuestionsForQuizId(int id)
         {
@@ -42,6 +51,11 @@ namespace PerfectPoliciesFE.Controllers
             return View("Index", questions);
         }
 
+        /// <summary>
+        /// Return seleted question's details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>question details</returns>
         // GET: QuestionController/Details/5
         public ActionResult Details(int id)
         {

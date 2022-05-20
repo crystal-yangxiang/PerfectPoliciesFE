@@ -42,6 +42,10 @@ namespace PerfectPoliciesFE.Controllers
             }
         }
 
+        /// <summary>
+        /// Return a rendered chart and export data button
+        /// </summary>
+        /// <returns></returns>
         public IActionResult DisplayReport()
         {
 
@@ -84,6 +88,11 @@ namespace PerfectPoliciesFE.Controllers
 
         }
 
+
+        /// <summary>
+        /// Return the memory stream as a .csv file
+        /// </summary>
+        /// <returns></returns>
         public IActionResult ExportData()
         {
             //Get this data for this report (chanllege - find a way to improve this)
