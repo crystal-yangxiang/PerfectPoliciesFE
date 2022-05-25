@@ -48,12 +48,10 @@ namespace PerfectPoliciesFE.Controllers
         /// <returns></returns>
         public IActionResult DisplayReport()
         {
-
             // Retrive the data from the API
             var reportData = _reportService.GetAll("Report", "QuestionPerQuizReport");
 
             // Define the empty chart
-
             Chart chart = new Chart();
 
             //Define the chart type
@@ -65,8 +63,7 @@ namespace PerfectPoliciesFE.Controllers
             //set the labels for the X axis
             data.Labels = reportData.Select(c => c.QuizTitle).ToList();
 
-            BarDataset dataset = new BarDataset()
-            {
+            BarDataset dataset = new BarDataset(){
                 Label = "Question Count",
                 Data = reportData.Select(c => (double?)c.QuestionCount).ToList(),
                 BackgroundColor = new List<ChartColor>
@@ -79,7 +76,6 @@ namespace PerfectPoliciesFE.Controllers
 
             data.Datasets = new List<Dataset>();
             data.Datasets.Add(dataset);
-
             chart.Data = data;
 
             ViewData["chart"] = chart;

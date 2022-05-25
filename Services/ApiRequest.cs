@@ -105,8 +105,5 @@ namespace PerfectPoliciesFE.Services
             var entities = response.Content.ReadAsAsync<List<T>>().Result;
             return entities;
         }
-
-
-
     }
 }

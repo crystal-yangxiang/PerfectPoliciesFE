@@ -186,12 +186,22 @@ namespace PerfectPoliciesFE.Controllers
             }
         }
 
+        /// <summary>
+        /// Upload and save question image files
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> UploadFile(IFormFile file)
         {
+            //retrieve folder path
             string folderRoot = Path.Combine(_hostingEnvironment.ContentRootPath, "wwwroot\\Uploads");
+            
+            
+            // combine filename and folder path
             string filePath = Path.Combine(folderRoot, file.FileName);
 
+            // save file
             using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await file.CopyToAsync(stream);

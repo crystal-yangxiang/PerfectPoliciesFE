@@ -31,6 +31,11 @@ namespace PerfectPoliciesFE.Controllers
             return View(options);
         }
 
+        /// <summary>
+        /// return a list of options only under sepcific QuestionId
+        /// </summary>
+        /// <param name="id">questionId</param>
+        /// <returns></returns>
         public ActionResult OptionsForQuestionId(int id)
         {
             var options = _optionService.GetChildrenForParentID("Option", "GetForQuestionId", id);

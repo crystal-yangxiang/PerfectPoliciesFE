@@ -16,25 +16,32 @@ namespace PerfectPoliciesFE.Controllers
     public class QuizController : Controller
     {
         // Pull service from Startup Class
-       
         private readonly IApiRequest<Quiz> _quizService;
 
         private string controllerName = "Quiz";
 
         public QuizController(IApiRequest<Quiz> quizService)
         {
-            
             _quizService = quizService;
         }
 
+        /// <summary>
+        /// Create a filtered collection of quizDDL, convert value to string and return filtered string in the index
+        /// </summary>
+        /// <param name="collection"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Filter(IFormCollection collection)
         {
-            var result = collection["teacherDDL"].ToString();
+            var result = collection["quizDDL"].ToString();
             return RedirectToAction("Index", new { filter = result });
         }
 
-
+        /// <summary>
+        /// Get user's input string QuizCreatorName value from textfield in the index page and return a filtered list of quizzes only match input string
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         // GET: QuizController
         public ActionResult Index(string filter = "")
         {
@@ -175,7 +182,7 @@ namespace PerfectPoliciesFE.Controllers
         }
 
         /// <summary>
-        /// Return a filtered list of quizzes which contain and match input string
+        /// Return a filtered list of quizzes which only contain and match input string
         /// </summary>
         /// <param name="collection"></param>
         /// <returns></returns>
