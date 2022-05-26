@@ -17,7 +17,7 @@ namespace PerfectPoliciesFE.Models
         [Display(Name = "Question Text")]
         public string QuestionText { get; set; }
 
-        [Display(Name = "Question ImageUrl")]
+        [Display(Name = "Question Image")]
         public string QuestionImageUrl { get; set; }
 
         //nevagation property
@@ -26,7 +26,7 @@ namespace PerfectPoliciesFE.Models
         public Quiz Quiz { get; set; }
 
         //FK
-        [Display(Name = "Quiz Id")]
+        [Display(Name = "Quiz Topic")]
         public int QuizId { get; set; }
     }
 }

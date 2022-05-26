@@ -18,14 +18,14 @@ namespace PerfectPoliciesFE.Models
         [Display(Name = "Option Letter")]
         public string OptionLetter { get; set; }
 
-        [Display(Name = "Option Is Correct")]
+        [Display(Name = "Ticked Correct Option")]
         public bool OptionIsCorrect { get; set; }
 
         //navigation property
         public Question Question { get; set; }
 
         //FK
-        [Display(Name = "Question Id")]
+        [Display(Name = "Question Text")]
         public int QuestionId { get; set; }
 
 
